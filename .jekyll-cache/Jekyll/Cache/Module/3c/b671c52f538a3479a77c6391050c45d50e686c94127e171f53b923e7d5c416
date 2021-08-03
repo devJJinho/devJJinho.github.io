@@ -1,0 +1,33 @@
+I"L
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/profile/dolphin.png" alt="Jino's Devlog"></a>
+        
+        <a class="site-title" href="/">
+          Jino's Devlog
+          <span class="site-subtitle">매일매일 성장</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/year-archive/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Blogs</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About Me</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+:ET

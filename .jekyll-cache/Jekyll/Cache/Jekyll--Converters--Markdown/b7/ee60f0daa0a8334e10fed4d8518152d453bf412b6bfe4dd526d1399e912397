@@ -1,0 +1,5 @@
+I":<h1 id="cors-정책-위반">CORS 정책 위반</h1>
+<blockquote>
+  <p>Access to script at ‘PATH’ from origin ‘null’ has been blocked by <mark>CORS policy</mark>: Cross origin requests are only supported for protocol schemes: http, data, chrome, chrome-extension, chrome-untrusted, https.</p>
+</blockquote>
+:ET

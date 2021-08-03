@@ -1,0 +1,59 @@
+I"<h1 id="cors-정책-위반">CORS 정책 위반</h1>
+<blockquote>
+  <p>Access to script at ‘PATH’ from origin ‘null’ has been blocked by <mark>CORS policy</mark>: Cross origin requests are only supported for protocol schemes: http, data, chrome, chrome-extension, chrome-untrusted, https.</p>
+</blockquote>
+
+<blockquote>
+  <p>Failed to load resource: net::ERR_FAILED</p>
+</blockquote>
+
+<p><img src="/assets/img/2021-07-05/2021-07-05-01.png" alt="Error code" /></p>
+
+<p><br /></p>
+
+<h1 id="-발단">🆘 발단</h1>
+
+<p>ES6의 module export/import를 사용해보고자 로컬에서 아래와 같은 코드를 작성하고 실행시켰더니 위와 같은 에러코드를 만났습니다.</p>
+
+<p><strong>index.html :</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script type="module" src="js/main.js"&gt;&lt;/script&gt;
+</code></pre></div></div>
+
+<p><strong>main.js :</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import { paintClock,hideClock } from "./clock.js"; 
+import { paintGreeting } from "./greeting.js";          
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h1 id="-해결방안">🎯 해결방안</h1>
+
+<p>로컬에서 웹서버를 실행시킵니다.</p>
+
+<p>Vscode를 쓰신다면 <em>Live Server</em>를 사용할 수 있습니다.
+<img src="/assets/img/2021-07-05/2021-07-05-02.png" alt="live server" /></p>
+
+<p><em>index.html</em>에서 오른쪽 클릭 -&gt; <em>Open with Liver Server</em>
+<img src="/assets/img/2021-07-05/2021-07-05-03.png" alt="live server" /></p>
+
+<p><br /></p>
+
+<h1 id="-원인">🤔 원인</h1>
+
+<p>우선 문제해결과 원인 분석에 참고했던 블로그 글입니다.
+<a href="https://velog.io/@takeknowledge/%EB%A1%9C%EC%BB%AC%EC%97%90%EC%84%9C-CORS-policy-%EA%B4%80%EB%A0%A8-%EC%97%90%EB%9F%AC%EA%B0%80-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0-3gk4gyhreu">참고한 원글</a></p>
+
+<p>결론부터 이야기 하면 브라우저의 보안 강화로 인해 path가 다른 module의 호출을 막았기 때문입니다. 
+로컬 경로(file:/…)module을 요청하는 Request URL이 null로 넘어왔기 때문에 CORS 정책을 위반했습니다.</p>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Resource-Policy">CORS 정책이란</a></p>
+
+<p>때문에 웹서버를 실행시켜 경로를 일치시켜주면 실행이 됐던 것입니다.</p>
+
+<p><br /></p>
+
+<h2 id="-reference">🔖 Reference</h2>
+
+<p><a href="https://velog.io/@takeknowledge/%EB%A1%9C%EC%BB%AC%EC%97%90%EC%84%9C-CORS-policy-%EA%B4%80%EB%A0%A8-%EC%97%90%EB%9F%AC%EA%B0%80-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0-3gk4gyhreu">로컬에서 CORS policy 관련 에러가 발생하는 이유</a></p>
+
+:ET

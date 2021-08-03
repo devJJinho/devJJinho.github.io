@@ -1,0 +1,81 @@
+I"<p>거의 개인 메모용에 가까운 게시물입니다.. 자세한 설명은 아래 Reference의 원글을 참고해주세요.</p>
+
+<hr />
+
+<ol>
+  <li><strong>node.js, npm이 설치되어 있다는 전제하에 실행된다.</strong><br />
+ npm 설치 확인(버전 확인) :
+    <pre><code class="language-linux"> npm -v
+</code></pre>
+
+    <p><br /></p>
+  </li>
+  <li>
+    <p><strong>해당 폴더에서 npm 설치</strong></p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm i -D webpack webpack-cli
+</code></pre></div>    </div>
+
+    <blockquote>
+      <p>i : install<br />
+-D :  developDependency</p>
+    </blockquote>
+
+    <p><br /></p>
+  </li>
+  <li><strong>webpack 실행</strong>
+    <blockquote>
+      <p>command 명령어로도 entry, output등의 param을 전달할 수 도 있지만 비효율적이다.<br />
+webpack 실행 때 필요한 param을 저장한 <strong><em>webpack.config.js</em></strong>를 만들자</p>
+    </blockquote>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx webpack --config {webpack.config.js의 경로}
+</code></pre></div>    </div>
+
+    <p><br /></p>
+  </li>
+  <li><strong>webpack.config.js의 예시</strong>
+    <blockquote>
+      <p>더 세분화 된 옵션들은 <a href="https://webpack.js.org/configuration/">webpack 공식문서</a>를 참고하자</p>
+    </blockquote>
+
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//로컬 경로</span>
+  <span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">path</span><span class="dl">'</span><span class="p">);</span>
+
+  <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">mode</span><span class="p">:</span> <span class="dl">'</span><span class="s1">development</span><span class="dl">'</span><span class="p">,</span>
+  <span class="c1">//시작점외 되는 js 파일</span>
+  <span class="na">entry</span><span class="p">:</span> <span class="dl">'</span><span class="s1">./js/main.js</span><span class="dl">'</span><span class="p">,</span>
+  <span class="c1">//결과물</span>
+  <span class="na">output</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">path</span><span class="p">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">),</span>
+      <span class="na">filename</span><span class="p">:</span> <span class="dl">'</span><span class="s1">index.js</span><span class="dl">'</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="c1">//수정시 자동 업데이트 됨</span>
+  <span class="na">watch</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
+  <span class="na">module</span><span class="p">:</span> <span class="p">{</span> 
+      <span class="na">rules</span><span class="p">:[</span>
+      <span class="p">{</span> 
+          <span class="c1">//css 로더</span>
+          <span class="na">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">\.</span><span class="sr">css$/</span><span class="p">,</span>
+          <span class="na">use</span> <span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">style-loader</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">css-loader</span><span class="dl">'</span><span class="p">]</span> 
+      <span class="p">}</span> 
+      <span class="p">]</span> 
+  <span class="p">}</span>
+  <span class="p">};</span>
+</code></pre></div>    </div>
+
+    <p><br /></p>
+  </li>
+  <li><strong>CSS Loader 설치</strong>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm i style-loader css-loader -D
+</code></pre></div>    </div>
+
+    <p><br /></p>
+  </li>
+</ol>
+
+<h1 id="-reference">📚 Reference</h1>
+<p><a href="https://www.zerocho.com/category/Webpack/post/58aa916d745ca90018e5301d">웹팩5(Webpack) 설정하기
+</a></p>
+:ET
