@@ -1,5 +1,0 @@
-I"]<blockquote>
-  <p>결론부터 이야기하면 manifest.json에 permission을 추가해야됩니다.<br />
-Permission 설정 없이 <code class="language-plaintext highlighter-rouge">chrome://favicon/...</code>을 사용하면 로컬 경로 호출로 인식하여 <strong>CORS 정책 위반 에러</strong>를 만나게 됩니다.</p>
-</blockquote>
-:ET
